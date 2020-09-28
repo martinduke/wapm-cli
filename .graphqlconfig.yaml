@@ -1,6 +1,6 @@
 schemaPath: graphql/schema.graphql
 extensions:
   endpoints:
-    prod: "https://registry.wapm.io/graphql"
-    dev: "https://registry.wapm.dev/graphql"
+    prod: "http://localhost:4000/graphql"
+    dev: "http://localhost:4000/graphql"
     local: "http://localhost:8000/graphql"

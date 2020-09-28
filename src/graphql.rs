@@ -56,6 +56,7 @@ where
         whoami::os().to_lowercase(),
     );
 
+    println!("{}", query.query.to_string());
     let res = client
         .post(registry_url)
         .multipart(form)
@@ -65,6 +66,7 @@ where
 
     let response_body: Response<R> = res.json()?;
     if let Some(errors) = response_body.errors {
+        println!("in error block");
         let error_messages: Vec<String> = errors.into_iter().map(|err| err.message).collect();
         return Err(GraphQLError::Error {
             message: error_messages.join(", "),
@@ -79,5 +81,6 @@ where
     for<'de> R: serde::Deserialize<'de>,
     V: serde::Serialize,
 {
+    println!("Execute query!");
     execute_query_modifier(query, |f| f)
 }

@@ -84,7 +84,7 @@ impl Default for Config {
     fn default() -> Config {
         Config {
             registry: Registry {
-                url: "https://registry.wapm.io".to_string(),
+                url: "http://localhost:4000".to_string(),
                 token: None,
             },
             #[cfg(feature = "telemetry")]
